@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+PostHog setup
+----------------
+
+This project includes a minimal PostHog client and server helper.
+
+- Client env vars: `NEXT_PUBLIC_POSTHOG_API_KEY` and optional `NEXT_PUBLIC_POSTHOG_HOST` (defaults to `https://app.posthog.com`).
+- Server env vars: `POSTHOG_API_KEY` and optional `POSTHOG_HOST`.
+
+Set these in a local `.env.local` file at the project root, for example:
+
+```env
+NEXT_PUBLIC_POSTHOG_API_KEY=phc_XXXXXXXXXXXXXXXXXXXX
+NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
+POSTHOG_API_KEY=sk_xxxxxxxxxxxxxxxxxxxxx
+POSTHOG_HOST=https://app.posthog.com
+```
+
+The client initializer is in `lib/posthog.ts` and is automatically called from `app/layout.tsx` on the browser. Server utilities live in `lib/posthog-server.ts`.
