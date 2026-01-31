@@ -172,7 +172,7 @@ function normalizeTime(timeStr: string): string {
  * Pre-save hook to handle slug generation and date/time normalization
  * Only regenerates slug if title has changed
  */
-EventSchema.pre('save', function (next) {
+EventSchema.pre('save' as any, function (this: IEvent, next: (err?: Error) => void) {
   // Generate slug if title is new or modified
   if (this.isModified('title')) {
     this.slug = generateSlug(this.title);

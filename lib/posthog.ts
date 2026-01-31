@@ -12,6 +12,9 @@ export async function initPostHog(): Promise<void> {
     const posthog = (mod && (mod as any).default) || mod;
     posthog.init(apiKey, { api_host: host });
     win.__POSTHOG_INITIALIZED = true;
+    // Helpful console message for debugging in the browser
+    // eslint-disable-next-line no-console
+    console.info("PostHog initialized (client)");
   } catch (err) {
     // fail silently; avoid breaking the app
     // eslint-disable-next-line no-console

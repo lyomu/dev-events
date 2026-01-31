@@ -1,10 +1,12 @@
-import PostHog from "posthog-node";
+import PostHogModule from "posthog-node";
 
 const apiKey = process.env.POSTHOG_API_KEY || "";
 const host = process.env.POSTHOG_HOST || "https://app.posthog.com";
 
-export const posthogServer = apiKey
-  ? new PostHog(apiKey, { host })
+const PostHogClass: any = (PostHogModule as any).default ?? PostHogModule;
+
+export const posthogServer: any = apiKey
+  ? new PostHogClass(apiKey, { host })
   : null;
 
 export async function trackEvent(event: string, properties?: Record<string, any>) {
