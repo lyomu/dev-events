@@ -5,11 +5,19 @@ const events = [
     {
         image: "/images/event1.jpg",
         title: "Event 1",
+        slug: "event-1",
+        date: "Date 1",
+        time: "Time 1",
+        location: "Location 1",
     },
 
      {
         image: "/images/event2.jpg",
         title: "Event 2",
+        slug: "event-2",
+        date: "Date 2",
+        time: "Time 2",
+        location: "Location 2",
     },
    
 ]
