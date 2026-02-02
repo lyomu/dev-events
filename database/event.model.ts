@@ -201,8 +201,8 @@ EventSchema.pre('save' as any, function (this: IEvent, next: (err?: Error) => vo
 
 /**
  * Create unique index on slug for faster queries and uniqueness enforcement
+ * Note: slug field already has unique: true in schema definition
  */
-EventSchema.index({ slug: 1 }, { unique: true });
 
 /**
  * Export Event model or use existing if already compiled
